@@ -10,10 +10,11 @@ __***Roberto Bigazzi***__, Federico Landi, Marcella Cornia, Silvia Cascianelli, 
    1. [LoCoNav](#loconav)
    1. [Desktop Installation](#desktop-installation)
    1. [LoCoBot Installation](#locobot-installation)
-   1. [Experiments](#experiments)
-   1. [Citing LoCoNav](#citing-loconav)
-   1. [License](#license)
-   1. [Acknowledgments](#acknowledgments)
+   1. [Pretrained Weights](#pretrained-weights)
+   3. [Experiments](#experiments)
+   4. [Citing LoCoNav](#citing-loconav)
+   5. [License](#license)
+   6. [Acknowledgments](#acknowledgments)
 
 
 ## LoCoNav
@@ -152,6 +153,18 @@ __***Roberto Bigazzi***__, Federico Landi, Marcella Cornia, Silvia Cascianelli, 
     ```
 
 #### At this point, the LoCoBot will receive and execute the evaluation scripts sent from your machine.
+
+
+## Pretrained Weights
+To download our pretrained weights for LoCoBot:
+```
+source activate loconav
+pip install gdown
+mkdir pretrained_ckpts
+cd pretrained_ckpts
+gdown https://drive.google.com/uc?id=1IGeEm-4hs39nCkbQP-FQd2XL6lzm20Lv
+cd ..
+```
 
 
 ## Experiments
