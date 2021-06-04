@@ -1,0 +1,72 @@
+BASE_TASK_CONFIG_PATH: "configs/exploration/evaluation.yaml"
+ENV_NAME: "PyRobot-v0"
+SIMULATOR_GPU_ID: 0
+TORCH_GPU_ID: 0
+VIDEO_OPTION: ["disk"]
+TENSORBOARD_DIR: "tb/locobot"
+VIDEO_DIR: "video_dir/locobot"
+EVAL_CKPT_PATH_DIR: "pretrained_ckpts/ckpt.104.pth"
+NUM_PROCESSES: 1
+SENSORS: ["RGB_SENSOR", "DEPTH_SENSOR"]
+
+EVAL:
+  SPLIT: "val"
+  USE_CKPT_CONFIG: False
+
+RL:
+  ANS:
+    fixed_global_goal: True
+    # Example Episodes: {[3.5, 1.5], [-5.75, -1.0], [-5,75, -3.5], [-1.50, -6.20], [3.75, 0.0]}
+    fixed_delta_y: 3.75 # forward displacement
+    fixed_delta_x: 0.0 # right displacement
+    planning_step: 0.25
+    inplace_rot: 12
+    thresh_obstacle: 0.7
+    image_scale_hw: [128, 128]
+    crop_map_for_planning: False
+    overall_map_size: 961
+    local_reward_type: 'diff'
+    use_ddp: False
+    gpu_ids: [0]
+    MAPPER:
+      map_size: 101
+      registration_type: 'moving_average'
+      label_id: 'ego_map_gt_anticipated'
+      ignore_pose_estimator: True
+      use_sensor_positioning: True
+      use_gt_projection: False
+      debug_log: True
+    OCCUPANCY_ANTICIPATOR:
+      type: 'occant_rgbd'
+      EGO_PROJECTION:
+        map_scale: 0.05
+        min_depth: 0.0
+        max_depth: 5.0
+        truncate_depth: -1.0
+        camera_height: 0.6
+        height_thresholds: [0.3, 0.6]
+        hfov: 57
+        vfov: 86
+      GP_ANTICIPATION:
+        wall_fov: 120.0
+        resnet_type: 'resnet18'
+        unet_nsf: 64
+    LOCAL_POLICY:
+      use_heuristic_policy: True
+      deterministic_flag: True
+      AGENT_DYNAMICS:
+        forward_step: 0.25
+        turn_angle: 15.0
+    PLANNER:
+      nplanners: 1
+
+SAVE_OBS_IMGS: False
+SAVE_MAP_IMGS: False
+SAVE_VIDEO_IMGS: False
+DEBUG_VIDEO_FRAME: False
+DRAW_COLLISIONS: True
+COORD_DEBUG: False
+
+T_EXP: 300  # Steps of the evaluation episode
+MANUAL_COMMANDS: False
+CAMERA_TILT: 0.0

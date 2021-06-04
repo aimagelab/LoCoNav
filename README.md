@@ -25,7 +25,7 @@ __***Roberto Bigazzi***__, Federico Landi, Marcella Cornia, Silvia Cascianelli, 
   
 ### Samples of Navigation Episodes in the Real World
 <p align="center">
-  <img src="content/episode_0-ckpt_104-t_1619770109.91.gif" width="49%"/>
+  <img src="content/episode1.gif" width="49%"/>
   &nbsp;
   <img src="content/episode2.gif" width="49%"/>
 </p>
@@ -71,7 +71,7 @@ __***Roberto Bigazzi***__, Federico Landi, Marcella Cornia, Silvia Cascianelli, 
     
 4. Clone this repository:
     ```
-    git clone https://github.com/aimagelab/LoCoNav
+    git clone --recursive https://github.com/aimagelab/LoCoNav
     cd LoCoNav
     ```
     

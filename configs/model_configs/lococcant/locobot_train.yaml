@@ -1,0 +1,64 @@
+BASE_TASK_CONFIG_PATH: "configs/exploration/training.yaml"
+TRAINER_NAME: "occant_exp"
+ENV_NAME: "ExpRLEnv"
+SIMULATOR_GPU_ID: 0
+SIMULATOR_GPU_IDS: [1]
+TORCH_GPU_ID: 0
+VIDEO_OPTION: ["disk", 'tensorboard']
+TENSORBOARD_DIR: "tb/occant_with_map_locobot"
+VIDEO_DIR: "video_dir/occant_with_map_locobot"
+EVAL_CKPT_PATH_DIR: "data/occant_locobot"
+NUM_PROCESSES: 6
+SENSORS: ["RGB_SENSOR", "DEPTH_SENSOR"]
+CHECKPOINT_FOLDER: "data/checkpoints/occant_locobot"
+NUM_EPISODES: 10000
+T_EXP: 1000
+T_MAX: 500
+CHECKPOINT_INTERVAL: 10
+
+RL:
+  PPO:
+    ppo_epoch: 4
+    num_mini_batch: 4
+  ANS:
+    fixed_global_goal: False
+    use_ddp: False
+    gpu_ids: [0]
+    reward_type: "map_accuracy"
+    image_scale_hw: [128, 128]
+    crop_map_for_planning: False
+    overall_map_size: 961
+    local_reward_type: 'diff'
+    MAPPER:
+      map_size: 101
+      registration_type: 'moving_average'
+      label_id: 'ego_map_gt_anticipated'
+      ignore_pose_estimator: False
+      pose_predictor_inputs: ['ego_map']
+      map_batch_size: 32
+      use_data_parallel: False
+      replay_size: 1000
+      use_gt_projection: False
+      debug_log: False
+      gpu_ids: []
+    OCCUPANCY_ANTICIPATOR:
+      type: 'occant_rgbd'
+      EGO_PROJECTION:
+        map_scale: 0.05
+        min_depth: 0.0
+        max_depth: 5.0
+        truncate_depth: -1.0
+        camera_height: 0.6
+        height_thresholds: [0.3, 0.6]
+        hfov: 57
+        vfov: 86
+      GP_ANTICIPATION:
+        wall_fov: 120.0
+        resnet_type: 'resnet18'
+        unet_nsf: 64
+    LOCAL_POLICY:
+      AGENT_DYNAMICS:
+        forward_step: 0.25
+        turn_angle: 15.0
+      learning_algorithm: 'rl'
+      use_heuristic_policy: False

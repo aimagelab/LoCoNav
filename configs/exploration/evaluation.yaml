@@ -1,0 +1,19 @@
+PYROBOT:
+  BASE_CONTROLLER: proportional  # "proportional" or "ilqr"
+  BASE_PLANNER: movebase
+  RGB_SENSOR:
+    WIDTH: 640
+    HEIGHT: 360
+    HFOV: 70
+    POSITION: [0, 0.60, 0]
+  DEPTH_SENSOR:
+    WIDTH: 640
+    HEIGHT: 360
+    NORMALIZE_DEPTH: True
+    HFOV: 70
+    MIN_DEPTH: 0.0
+    MAX_DEPTH: 5.0
+    POSITION: [0, 0.60, 0]
+TASK:
+  TYPE: Exp-v0
+  MEASUREMENTS: []
