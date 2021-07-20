@@ -4,6 +4,7 @@ This is the PyTorch implementation for our paper:
 
 [**Out of the Box: Embodied Navigation in the Real World**](https://arxiv.org/abs/2105.05873)<br>
 __***Roberto Bigazzi***__, Federico Landi, Marcella Cornia, Silvia Cascianelli, Lorenzo Baraldi, Rita Cucchiara<br>
+*19th International Conference on Computer Analysis of Images and Patterns (CAIP), 2021*
 
 
 ## Table of contents
@@ -184,10 +185,10 @@ If you find our code useful for your research, please cite our paper:
 
 #### Bibtex:
 ```
-@article{bigazzi2021out,
+@inproceedings{bigazzi2021out,
   title={Out of the Box: Embodied Navigation in the Real World},
   author={Bigazzi, Roberto and Landi, Federico and Cornia, Marcella and Cascianelli, Silvia and Baraldi, Lorenzo and Cucchiara, Rita},
-  journal={arXiv preprint arXiv:2105.05873},
+  booktitle={2021 19th International Conference on Computer Analysis of Images and Patterns (CAIP)},
   year={2021}
 }
 ```
