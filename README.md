@@ -56,7 +56,7 @@ __***Roberto Bigazzi***__, Federico Landi, Marcella Cornia, Silvia Cascianelli, 
     python setup.py develop --all
     ```
     
-3. Install [Habitat-Sim](https://github.com/facebookresearch/habitat-sim):
+3. Install [Habitat-Sim](https://github.com/facebookresearch/habitat-sim) via source:
     ```
     cd ..
     git clone --branch stable https://github.com/facebookresearch/habitat-sim.git
@@ -70,9 +70,11 @@ __***Roberto Bigazzi***__, Federico Landi, Marcella Cornia, Silvia Cascianelli, 
     ```
     python setup.py install --headless --with-cuda
     ```
+    If installation via source fails you can try [conda installation](https://github.com/facebookresearch/habitat-sim#recommended-conda-packages):
     
 4. Clone this repository:
     ```
+    cd ../..
     git clone --recursive https://github.com/aimagelab/LoCoNav
     cd LoCoNav
     ```
