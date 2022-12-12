@@ -165,7 +165,7 @@ source activate loconav
 pip install gdown
 mkdir pretrained_ckpts
 cd pretrained_ckpts
-gdown https://drive.google.com/uc?id=1IGeEm-4hs39nCkbQP-FQd2XL6lzm20Lv
+wget https://ailb-web.ing.unimore.it/publicfiles/drive/Pesi%20LoCoNav/ckpt.104.pth
 cd ..
 ```
 
